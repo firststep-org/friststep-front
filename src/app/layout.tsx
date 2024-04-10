@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@material-tailwind/react";
+import Provider from "./Provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,10 +17,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <ThemeProvider>
+    <Provider>
+      <html lang="en">
         <body className={inter.className}>{children}</body>
-      </ThemeProvider>
-    </html>
+      </html>
+    </Provider>
   );
 }
